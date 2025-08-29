@@ -1,9 +1,7 @@
-package com.coursojava.sesion06;
+package com.coursojava.sesion09;
 
 
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 

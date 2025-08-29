@@ -1,4 +1,4 @@
-package com.coursojava.sesion05.abstracts;
+package com.coursojava.sesion08.abstracts;
 
 public class App {
     public static void main(String[] args) {
