@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class App {
-        private final static  String DRIVER_NAME="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+
         private final static  String URL="jdbc:sqlserver://DGBL2204\\SQLEXPRESS;databaseName=CourseJava;encrypt=true;trustServerCertificate=true;multipleActiveResultSets=true";
         private final static  String USER_NAME="sa";
         private final static  String PASSWORD_NAME="Remigio13579";
@@ -40,11 +40,12 @@ public class App {
 //                    System.out.println(metaData.getColumnName(i) + " | ");
 //            }
             System.out.println();
-//            while (rest.next()){
-//                System.out.println("LenguageId: " + rest.getLong(1));
-//                System.out.println("Name: " + rest.getString(2));
-//                System.out.println("Ultima Actualización: " + rest.getDate(3));
-//            }
+
+            while (rest.next()){
+                System.out.println("LenguageId: " + rest.getLong(1));
+                System.out.println("Name: " + rest.getString(2));
+                System.out.println("Ultima Actualización: " + rest.getDate(3));
+            }
 
              //Extracion de metadatos y datos de la tabla
             //Consult DB
