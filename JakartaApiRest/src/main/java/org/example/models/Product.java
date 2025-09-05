@@ -1,8 +1,11 @@
 package org.example.models;
 
 
+
 public class Product {
     private Integer id;
+    private String name;
+
 
     public String getName() {
         return name;
@@ -12,7 +15,6 @@ public class Product {
         this.name = name;
     }
 
-    private String name;
 
     public Integer getId() {
         return id;
