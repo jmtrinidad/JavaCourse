@@ -1,22 +1,15 @@
 package com.brainstorming.quicknote.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import tools.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-
 import java.time.LocalDateTime;
 
+import lombok.*;
 
 @Entity
 @Table(name = "notes")
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
-
+@Data
 public class Note {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,5 +30,3 @@ public class Note {
 
   String color;
 }
-
-
