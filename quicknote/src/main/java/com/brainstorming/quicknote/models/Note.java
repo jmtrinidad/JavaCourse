@@ -1,10 +1,22 @@
 package com.brainstorming.quicknote.models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+
 import java.time.LocalDateTime;
+
 
 @Entity
 @Table(name = "notes")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+
 public class Note {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,70 +36,6 @@ public class Note {
   boolean isArchived;
 
   String color;
-  
-  //Getters and Setters
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public LocalDateTime getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(LocalDateTime creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public boolean isPinned() {
-        return isPinned;
-    }
-
-    public void setPinned(boolean pinned) {
-        isPinned = pinned;
-    }
-
-    public boolean isArchived() {
-        return isArchived;
-    }
-
-    public void setArchived(boolean archived) {
-        isArchived = archived;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
 }
+
+

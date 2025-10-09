@@ -4,17 +4,16 @@ import com.brainstorming.quicknote.models.Note;
 import com.brainstorming.quicknote.repositories.NoteRepository;
 import java.util.List;
 import java.util.Optional;
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class NoteService {
   private final NoteRepository noteRepository;
-
-  public NoteService(NoteRepository noteRepository) {
-    this.noteRepository = noteRepository;
-  }
 
   public Optional<Note> getNoteById(Long id) {
 

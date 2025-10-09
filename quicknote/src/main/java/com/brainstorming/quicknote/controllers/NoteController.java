@@ -4,6 +4,7 @@ import com.brainstorming.quicknote.dtos.NoteDto;
 import com.brainstorming.quicknote.models.Note;
 import com.brainstorming.quicknote.services.NoteService;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import java.net.URI;
 import java.util.List;
@@ -11,16 +12,15 @@ import java.util.Optional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
+import tools.jackson.dataformat.xml.XmlMapper;
 
 @RestController
 @RequestMapping("/notes")
+@RequiredArgsConstructor
 public class NoteController {
 
   private final NoteService noteService;
-
-  public NoteController(NoteService noteService) {
-    this.noteService = noteService;
-  }
+  private XmlMapper xmlMapper = new XmlMapper();
 
   @GetMapping("")
   private ResponseEntity<List<NoteDto>> getAll(Pageable pageable) {
@@ -32,8 +32,10 @@ public class NoteController {
     return ResponseEntity.ok(noteDtos);
   }
 
-  @GetMapping("/{id}")
-  private ResponseEntity<NoteDto> getNoteById(@PathVariable Long id) {
+  @GetMapping(
+      value = "/{id}",
+      produces = {"application/xml"})
+  private ResponseEntity<String> getNoteById(@PathVariable Long id) {
 
     Optional<Note> noteOptional = noteService.getNoteById(id);
 
@@ -44,8 +46,9 @@ public class NoteController {
     Note note = noteOptional.get();
 
     NoteDto noteDto = NoteDto.fromEntity(note);
+    String xml = xmlMapper.writeValueAsString(noteDto);
 
-    return ResponseEntity.ok(noteDto);
+    return ResponseEntity.ok(xml);
   }
 
   @PostMapping("")
